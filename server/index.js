@@ -3,7 +3,11 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import cors from "cors";
 
+import postRoutes from "./routes/posts";
+
 const app = express();
+
+app.use("/posts", postRoutes);
 
 // app.use(express.json());
 // app.use(express.urlencoded({
