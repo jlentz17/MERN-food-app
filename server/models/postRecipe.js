@@ -1,10 +1,10 @@
 import mongoose from "mongoose";
 
 const postSchema = {
-  title: String,
-  message: String,
   creator: String,
-  tags: [String],
+  title: String,
+  recipe: String,
+  ingredients: [String],
   selectedFile: String,
   likeCount: {
     type: Number,
@@ -16,6 +16,6 @@ const postSchema = {
   },
 };
 
-const PostMessage = mongoose.model("postMeassage", postSchema);
+const PostRecipe = mongoose.model("PostRecipe", postSchema);
 
-export default PostMessage;
+export default PostRecipe;

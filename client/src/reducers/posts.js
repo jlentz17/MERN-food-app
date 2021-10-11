@@ -3,7 +3,7 @@ export default (posts = [], action) => {
     case "FECTCH_ALL":
       return action.payload;
     case "CREATE":
-      return posts;
+      return [...posts, action.payload];
     default:
       return posts;
   }
