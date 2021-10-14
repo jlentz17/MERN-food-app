@@ -20,6 +20,7 @@ const Post = ({ post, setCurrentId }) => {
     <Card className={classes.card}>
       <CardMedia
         className={classes.media}
+        component="img"
         image={post.selectedFile}
         title={post.title}
       />
@@ -30,22 +31,24 @@ const Post = ({ post, setCurrentId }) => {
         </Typography>
       </div>
       <div className={classes.overlay2}>
-        <Button style={{ color: "white" }} size="small" onClick={() => setCurrentId(post._id)}>
-          <MoreHorizIcon fontSize="default" />
+        <Button
+          style={{ color: "white" }}
+          size="small"
+          onClick={() => setCurrentId(post._id)}
+        >
+          <MoreHorizIcon fontSize="medium" />
         </Button>
       </div>
       <div className={classes.details}>
-        <Typography variant="body2" color="textSecondary">
+        <Typography variant="body2" color="textSecondary" component="h2">
           {post.ingredients.map((ingredient) => `#${ingredient} `)}
         </Typography>
       </div>
-      <Typography className={classes.title} variant="h5" gutterBottom>
+      <Typography className={classes.title} variant="h5" component="h2" gutterBottom>
         {post.title}
       </Typography>
       <CardContent>
-        <Typography variant="body2" color="textSecondary">
-          {post.recipe}
-        </Typography>
+        <Typography variant="body2" color="textSecondary" component="p">{post.recipe}</Typography>
       </CardContent>
       <CardActions className={classes.cardActions}>
         <Button size="small" color="primary" onClick={() => {}}>
