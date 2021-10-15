@@ -90,7 +90,10 @@ const Form = ({ currentId, setCurrentId }) => {
           fullWidth
           value={postData.ingredients}
           onChange={(e) =>
-            setPostData({ ...postData, ingredients: e.target.value })
+            setPostData({
+              ...postData,
+              ingredients: e.target.value.split(","),
+            })
           }
         />
         <div className={classes.fileInput}>

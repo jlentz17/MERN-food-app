@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Card,
   CardActions,
@@ -14,11 +14,12 @@ import moment from "moment";
 import useStyles from "./styles";
 import { useDispatch } from "react-redux";
 
-import { deletePost } from "../../../actions/posts";
+import { likePost, deletePost } from "../../../actions/posts";
 
 const Post = ({ post, setCurrentId }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
+  const [counter, setCounter] = useState(0);
 
   return (
     <Card className={classes.card}>
@@ -60,12 +61,15 @@ const Post = ({ post, setCurrentId }) => {
         <Typography variant="body2" color="textSecondary" component="p">
           {post.recipe}
         </Typography>
-        0
       </CardContent>
       <CardActions className={classes.cardActions}>
-        <Button size="small" color="primary" onClick={() => {}}>
+        <Button
+          size="small"
+          color="primary"
+          onClick={() => dispatch(likePost(post._id))}
+        >
           <ThumbUpAltIcon fontSize="small" />
-          Like
+          &nbsp; Like &nbsp;
           {post.likeCount}
         </Button>
         <Button
@@ -75,6 +79,14 @@ const Post = ({ post, setCurrentId }) => {
         >
           <DeleteIcon fontSize="small" />
           Delete
+        </Button>
+        <p>{counter}</p>
+        <Button
+          onClick={() => {
+            setCounter(counter + 1);
+          }}
+        >
+          Count Up!
         </Button>
       </CardActions>
     </Card>
