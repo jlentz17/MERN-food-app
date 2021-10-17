@@ -2,9 +2,9 @@ import {
   FETCH_ALL,
   CREATE,
   UPDATE,
-  DELETE,
-  LIKE,
+  DELETE
 } from "../constants/actionTypes";
+
 import * as api from "../api";
 
 // Action Creators
